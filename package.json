@@ -56,7 +56,7 @@
     "typescript": "^4.7.3",
     "uglify-js": "^3.16.0"
   },
-  "author": "akursat",
+  "authors": ["akursat","shgaf433"],
   "homepage": "https://akursat.gitbook.io/marker-cluster/",
   "license": "SEE LICENSE IN <LICENSE>",
   "repository": "https://github.com/akursat/react-leaflet-cluster",
