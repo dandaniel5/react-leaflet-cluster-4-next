@@ -1,8 +1,44 @@
-This if fork of  # react-leaflet-cluster react-leaflet-cluster - https://www.npmjs.com/package/react-leaflet-cluster
-but slitly modified 4 fix next import css ishes
-disble css import form from index.js instead you shoul add MarkerCluster.css and MarkerCluster.Default.css to global css
-tested on react 18 acn next 14.2 with ```npm i @react-leaflet/core@2.1.0```
+# react-leaflet-cluster-4-next
 
+This is a fork of [react-leaflet-cluster](https://www.npmjs.com/package/react-leaflet-cluster), originally created by [akursat](https://github.com/akursat/react-leaflet-cluster).  
+It includes slight modifications to fix issues related to CSS imports in Next.js.
+
+## Key Changes
+- Disabled CSS imports from `index.js`.
+- **Required:** Add `MarkerCluster.css` and `MarkerCluster.Default.css` manually to your global CSS.
+
+## Compatibility
+- Tested with **React 18** and **Next.js 14.2**.
+- Use with `@react-leaflet/core@2.1.0`.
+
+## Installation
+
+```bash
+npm install react-leaflet-cluster-4-next
+```
+## example
+```
+import MarkerClusterGroup from 'react-leaflet-cluster-4-next';
+...
+
+<MapContainer
+      ref={mapRef}
+      zoomControl={false}
+      center={defaltLoc}
+      className="w-screen h-screen z-0"
+    >
+...
+      <MarkerClusterGroup
+        chunkedLoading
+      >
+        {markers?.map((marker, index) => (
+          <CustomMarker key={index} marker={marker} index={index} />
+        ))}
+      </MarkerClusterGroup>
+    </MapContainer >
+
+```
+## css to global
 ```
 //MarkerCluster.css 
 
@@ -83,6 +119,4 @@ tested on react 18 acn next 14.2 with ```npm i @react-leaflet/core@2.1.0```
 .marker-cluster span {
 	line-height: 30px;
 	}
-
-
 ```
