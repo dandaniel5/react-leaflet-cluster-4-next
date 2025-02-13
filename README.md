@@ -1,64 +1,88 @@
-# react-leaflet-cluster [![npm version](https://img.shields.io/npm/v/react-leaflet-cluster.svg)](https://www.npmjs.com/package/react-leaflet-cluster)
+This if fork of  # react-leaflet-cluster react-leaflet-cluster - https://www.npmjs.com/package/react-leaflet-cluster
+but slitly modified 4 fix next import css ishes
+disble css import form from index.js instead you shoul add MarkerCluster.css and MarkerCluster.Default.css to global css
+tested on react 18 acn next 14.2 with ```npm i @react-leaflet/core@2.1.0```
 
-- [x] React-leaflet v4 support
-- [x] Typescript support
-
-React-leaflet-cluster is a plugin for react-leaflet. A wrapper component of Leaflet.markercluster. Ready to be integrated into your React.js application to create beautifully animated Marker Clustering functionality.
-
-![](showcase.gif)
-
-### Examples - Code Sandbox
-* [10.000 marker](https://codesandbox.io/s/hidden-breeze-nrd3e?fontsize=14&hidenavigation=1&theme=dark)
-* [Custom marker cluster](https://codesandbox.io/s/beautiful-pike-j2l0w?file=/src/App.tsx)
-
-### Installation
-`yarn add react-leaflet-cluster`
-
-Or with npm:
-`npm i react-leaflet-cluster`
-
-
-#### Prerequisites
-Make sure that you've installed react-leaflet and leaflet.
-```json
-"react": "18.x",
-"leaflet": "1.8.x",
-"react-leaflet": "4.0.x"
 ```
+//MarkerCluster.css 
 
-####  API
-For more detailed guide and API see:
-https://akursat.gitbook.io/marker-cluster/api
-
-#### Usage
-
-```tsx
-import MarkerClusterGroup from 'react-leaflet-cluster'
-import {MapContainer, Marker } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import {addressPoints} from './realworld'
-
-const Demo = () => {
-  return (
-    <MapContainer
-      style={{height: '500px'}}
-      center={[38.9637, 35.2433]}
-      zoom={6}
-      scrollWheelZoom={true}
-    >
-      <MarkerClusterGroup
-        chunkedLoading
-      >
-        {(addressPoints as AdressPoint).map((address, index) => (
-          <Marker
-            key={index}
-            position={[address[0], address[1]]}
-            title={address[2]}
-            icon={customIcon}
-          ></Marker>
-        ))}
-      </MarkerClusterGroup>
-    </MapContainer>
-  )
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+	-webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
+	-moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
+	-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
+	transition: transform 0.3s ease-out, opacity 0.3s ease-in;
 }
+
+.leaflet-cluster-spider-leg {
+	/* stroke-dashoffset (duration and function) should match with leaflet-marker-icon transform in order to track it exactly */
+	-webkit-transition: -webkit-stroke-dashoffset 0.3s ease-out, -webkit-stroke-opacity 0.3s ease-in;
+	-moz-transition: -moz-stroke-dashoffset 0.3s ease-out, -moz-stroke-opacity 0.3s ease-in;
+	-o-transition: -o-stroke-dashoffset 0.3s ease-out, -o-stroke-opacity 0.3s ease-in;
+	transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
+}
+
+// MarkerCluster.Default.css
+
+.marker-cluster-small {
+	background-color: rgba(181, 226, 140, 0.6);
+	}
+.marker-cluster-small div {
+	background-color: rgba(110, 204, 57, 0.6);
+	}
+
+.marker-cluster-medium {
+	background-color: rgba(241, 211, 87, 0.6);
+	}
+.marker-cluster-medium div {
+	background-color: rgba(240, 194, 12, 0.6);
+	}
+
+.marker-cluster-large {
+	background-color: rgba(253, 156, 115, 0.6);
+	}
+.marker-cluster-large div {
+	background-color: rgba(241, 128, 23, 0.6);
+	}
+
+	/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+	background-color: rgb(181, 226, 140);
+	}
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgb(110, 204, 57);
+	}
+
+.leaflet-oldie .marker-cluster-medium {
+	background-color: rgb(241, 211, 87);
+	}
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgb(240, 194, 12);
+	}
+
+.leaflet-oldie .marker-cluster-large {
+	background-color: rgb(253, 156, 115);
+	}
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	}
+.marker-cluster span {
+	line-height: 30px;
+	}
+
+
 ```
