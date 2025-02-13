@@ -20,7 +20,8 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "copy:assets": "cpx 'src/assets/**' 'lib/assets'"
+    "copy:assets": "cpx 'src/assets/**' 'lib/assets'",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "leaflet.markercluster": "^1.5.3"
