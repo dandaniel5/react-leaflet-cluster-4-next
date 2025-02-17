@@ -1,4 +1,4 @@
-# react-leaflet-cluster-4-next ([github-repo](https://github.com/dandaniel5/react-leaflet-cluster-4-next)
+# react-leaflet-cluster-4-next [github-repo](https://github.com/dandaniel5/react-leaflet-cluster-4-next)
 
 This is a fork of [react-leaflet-cluster](https://www.npmjs.com/package/react-leaflet-cluster), originally created by [akursat](https://github.com/akursat/react-leaflet-cluster).  
 It includes slight modifications to fix issues related to CSS imports in Next.js.
